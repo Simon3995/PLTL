@@ -8,3 +8,6 @@ ctx.lineTo(c.width, c.height);
 ctx.moveTo(0, c.height);
 ctx.lineTo(c.width, 0);
 ctx.stroke();
+
+window.onload = function() {document.getElementById("maindiv").width = window.innerWidth}
+window.onresize = function() {document.getElementById("maindiv").width = window.innerWidth}
