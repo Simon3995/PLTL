@@ -1,13 +1,35 @@
 let c = document.getElementById("myCanvas");
 let ctx = c.getContext("2d");
+let div = document.getElementById("maindiv");
 
-ctx.strokeStyle = "white";
-ctx.beginPath();
-ctx.moveTo(0, 0);
-ctx.lineTo(c.width, c.height);
-ctx.moveTo(0, c.height);
-ctx.lineTo(c.width, 0);
-ctx.stroke();
+update();
+function update() {
+	ctx.clearRect(0,0,c.width,c.height);
+	drawYearLines();
+	
+	window.requestAnimationFrame(update);
+}
 
-window.onload = function() {document.getElementById("maindiv").width = window.innerWidth}
-window.onresize = function() {document.getElementById("maindiv").width = window.innerWidth}
+function drawYearLines() {
+	ctx.strokeStyle = "#fff3";
+	ctx.fillStyle = "#fff3";
+	ctx.font = "30px Verdana";
+	for (let i=0; i<81; i++) {
+		ctx.beginPath();
+		ctx.moveTo(c.width/81 * i, 0);
+		ctx.lineTo(c.width/81 * i, c.height);
+		ctx.stroke();
+		
+		ctx.fillText(1940+i, c.width/81*i + 10, 35);
+	}
+}
+
+window.onload = function() {
+	div.width = window.innerWidth;
+	div.scrollLeft = c.width-div.width;
+	divScroll = div.scrollLeft;
+}
+window.onresize = function() {div.width = window.innerWidth}
+div.onwheel = function(evt) {
+	div.scrollLeft += evt.deltaY;
+}
