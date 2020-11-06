@@ -1,11 +1,11 @@
 body {
-	background-color: #222;
+	background-color: #111;
 	margin: 0;
 	scroll-behavior: smooth;
 }
 
 canvas {
-	background-color: #fff2;
+	background-color: #fff1;
 }
 
 #maindiv {
