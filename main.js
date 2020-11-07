@@ -34,10 +34,10 @@ function drawLangs() {
 	for (let lang of langs) {
 		ctx.drawImage(
 			lang.img,
-			(lang.year - 1940) * 100 + 20,
-			50,
-			60,
-			60
+			(lang.year - 1940) * 100 + 10,
+			50 + 100 * lang.depth,
+			80,
+			80
 		);
 	}
 }
