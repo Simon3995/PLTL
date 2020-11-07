@@ -1,3 +1,4 @@
+// define languages
 langs = [];
 
 langs.push({
@@ -6,6 +7,13 @@ langs.push({
 	year: 1995,
 });
 
+langs.push({
+	name: "Java",
+	name_lower: "java",
+	year: 1995,
+});
+
+// link images
 for (lang of langs) {
 	lang.img = new Image();
 	lang.img.src = "imgs/" + lang.name_lower + ".png";

@@ -1,7 +1,8 @@
+// define canvas and context
 let c = document.getElementById("myCanvas");
 let ctx = c.getContext("2d");
 
-update();
+// main loop
 function update() {
 	ctx.clearRect(0,0,c.width,c.height);
 	drawYearLines();
@@ -9,7 +10,9 @@ function update() {
 	
 	window.requestAnimationFrame(update);
 }
+update();
 
+// draw lines and text for years
 function drawYearLines() {
 	ctx.strokeStyle = "#fff3";
 	ctx.fillStyle = "#fff3";
@@ -24,6 +27,7 @@ function drawYearLines() {
 	}
 }
 
+// draw language logos
 function drawLangs() {
 	ctx.fillStyle = "white";
 	ctx.font = "15px Verdana";
