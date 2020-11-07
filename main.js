@@ -1,11 +1,11 @@
 let c = document.getElementById("myCanvas");
 let ctx = c.getContext("2d");
-let div = document.getElementById("maindiv");
 
 update();
 function update() {
 	ctx.clearRect(0,0,c.width,c.height);
 	drawYearLines();
+	drawLangs();
 	
 	window.requestAnimationFrame(update);
 }
@@ -21,5 +21,19 @@ function drawYearLines() {
 		ctx.stroke();
 		
 		ctx.fillText(1940+i, c.width/81*i + 10, 35);
+	}
+}
+
+function drawLangs() {
+	ctx.fillStyle = "white";
+	ctx.font = "15px Verdana";
+	for (let lang of langs) {
+		ctx.drawImage(
+			lang.img,
+			(lang.year - 1940) * 100 + 20,
+			50,
+			60,
+			60
+		);
 	}
 }
